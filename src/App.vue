@@ -1,28 +1,33 @@
+/* eslint-disable */
 <template>
   <div id='app'>
-    <img src='./assets/logo.png'>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <LoginWidget v-if='!isConnected'/>
+    <router-view v-if='isConnected'></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LoginWidget from './components/LoginWidget'
+import { mapState } from 'vuex'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    LoginWidget
+  },
+  computed: {
+    ...mapState(['isConnected'])
   }
 }
 </script>
 
-<style>
-#app {
+<style lang='scss'>
+* {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 0;
+  padding: 0;
 }
 </style>
