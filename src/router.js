@@ -4,7 +4,7 @@ import Vue from 'vue'
 Vue.use(VueRouter)
 
 import Profile from './Profile'
-import Test from './Test'
+import NewsFeed from './NewsFeed'
 
 export default new VueRouter({
   mode: 'history',
@@ -14,8 +14,8 @@ export default new VueRouter({
       component: Profile,
     },
     {
-      path: '/test',
-      component: Test
+      path: '/',
+      component: NewsFeed
     }
   ]
 })

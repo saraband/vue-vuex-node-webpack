@@ -45,6 +45,8 @@ export default {
 
 #login-widget {
   width: 500px;
+  margin: auto;
+  margin-top: 300px;
   @extend %borderRadius;
   background-color: $blue;
   padding-top: 20px;

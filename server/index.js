@@ -1,5 +1,6 @@
 const express = require('express')
 const users = require('./users.js')
+let posts = require('./posts.js')
 const bodyParser = require('body-parser')
 const pretty = require('prettyjson')
 
@@ -19,10 +20,15 @@ app.post('/connect', (req, res) => {
 
   if(user) {
     res.setHeader('Content-Type', 'application/json')
-    res.end(JSON.stringify(Object.assign({}, user, {password: ''})))
+    res.end(JSON.stringify(user))
   } else {
     res.status(500).end()
   }
+})
+
+app.post('/posts', (req, res) => {
+  res.setHeader('Content-Type', 'application/json')
+  res.end(JSON.stringify(posts))
 })
 
 app.listen(3000)
